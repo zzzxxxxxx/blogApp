@@ -4,7 +4,7 @@
       <my-header/>
     </el-header>
     <el-container>
-      <el-aside width="200px">
+      <el-aside width="230px">
         <my-aside/>
       </el-aside>
         <el-main>
@@ -12,6 +12,7 @@
         </el-main>
     </el-container>
     <el-footer>Footer</el-footer>
+    <el-backtop></el-backtop>
   </el-container>
 </template>
 <script>
