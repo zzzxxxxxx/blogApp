@@ -1,10 +1,12 @@
 <template>
   <el-container>
     <el-header>
-      <MyHeader/>
+      <my-header/>
     </el-header>
     <el-container>
-      <el-aside width="200px">Aside</el-aside>
+      <el-aside width="200px">
+        <my-aside/>
+      </el-aside>
         <el-main>
           <nuxt />
         </el-main>
@@ -13,10 +15,12 @@
   </el-container>
 </template>
 <script>
-  import MyHeader from '@/components/public/header/index.vue'
+import MyHeader from '@/components/public/header/index.vue'
+import MyAside from '@/components/public/aside/index.vue'
   export default {
     components: {
-      MyHeader
+      MyHeader,
+      MyAside
     }
   }
 </script>
