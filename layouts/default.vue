@@ -3,7 +3,7 @@
     <el-header>
       <my-header/>
     </el-header>
-    <el-container>
+    <el-container class="center">
       <el-aside width="230px">
         <my-aside/>
       </el-aside>
