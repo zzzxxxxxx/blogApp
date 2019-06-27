@@ -1,0 +1,24 @@
+.titleFont {
+  color: #217d68;
+  font-size: 18px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #217d68;
+}
+.blogs-content {
+  padding-top: 10px;
+  a {
+    color: #217d68;
+  }
+}
+.blogs-footer {
+  float: right;
+  span, a {
+    font-size: 12px;
+  }
+  span {
+    color: #343434;
+  }
+  a {
+    color: #848484;
+  }
+}

@@ -1,13 +1,13 @@
 <template>
   <div class="m-aside">
     <el-row>
-      <aside-search/>
+      <aside-search class="container-box"/>
     </el-row>
     <el-row>
-      <aside-category/>
+      <aside-category class="container-box"/>
     </el-row>
     <el-row>
-      <aside-about/>
+      <aside-about class="container-box"/>
     </el-row>
   </div>
 </template>
