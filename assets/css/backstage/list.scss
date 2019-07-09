@@ -1,0 +1,22 @@
+.backstage-list {
+  text-align: center;
+  .list-title {
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #E4E7ED;
+  }
+  .list-content {
+    height: 60px;
+    padding: 10px 0;
+    border-bottom: 1px solid #F2F6FC;
+    .el-col {
+      color: #606266;
+    }
+    li {
+      display: inline-block;
+    }
+  }
+  .list-content:last-child {
+    border-bottom: 0;
+  }
+}

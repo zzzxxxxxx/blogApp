@@ -25,13 +25,17 @@ module.exports = {
   css: [
     'element-ui/lib/theme-chalk/index.css',
     'element-ui/lib/theme-chalk/reset.css',
-    '@/assets/css/main.css'
+    '@/assets/css/main.css',
+    'quill/dist/quill.snow.css',
+    'quill/dist/quill.bubble.css',
+    'quill/dist/quill.core.css'
   ],
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '@/plugins/element-ui'
+    '@/plugins/element-ui',
+    { src: '~plugins/nuxt-quill-plugin.js', ssr:false}
   ],
   /*
   ** Nuxt.js modules

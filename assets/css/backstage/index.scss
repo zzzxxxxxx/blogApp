@@ -1,0 +1,50 @@
+.layout-backstage {
+  header,section {
+    padding: 0;
+  }
+  header {
+    line-height: 60px;
+    border-bottom: 1px solid #dcdfe6;
+  }
+  header::before {
+    background: #000 linear-gradient(to left, #4cd964, #5ac8fa, #007aff, #34aadc, #5856d6, #ff2d55);
+    content: "";
+    height: 5px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+  section {
+    margin-top: 20px;
+  }
+  aside {
+    .aside-title {
+      padding: 10px;
+      color: #fff;
+      border-radius: 4px;
+      a {
+        color: #303133;
+      }
+    }
+    i {
+      padding-right: 5px;
+    }
+    .el-collapse {
+      padding: 10px;
+    }
+    ul {
+      padding: 5px 10px;
+      li {
+       height: 40px;
+       line-height: 40px;
+       border-bottom: 1px solid #EBEEF5;
+       a {
+         color: #303133;
+       }
+      }
+      li:last-child {
+        border-bottom: 0;
+      }
+    }
+  }
+}
