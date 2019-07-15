@@ -2,6 +2,15 @@ const Koa = require('koa')
 const consola = require('consola')
 const { Nuxt, Builder } = require('nuxt')
 
+import bodyParse from 'koa-bodyparser';
+import json from 'koa-json';
+
+import mongoose from 'mongoose';
+import dbConfig from './dbs/config';
+
+// 引入路由
+import articles from './interface/article'
+
 const app = new Koa()
 
 // Import and Set Nuxt.js options
@@ -17,6 +26,16 @@ async function start() {
     port = process.env.PORT || 3000
   } = nuxt.options.server
 
+  app.use(bodyParse({
+    extendTypes: ['json', 'form', 'text']
+  }))
+  app.use(json())
+
+  //连接数据库
+  mongoose.connect(dbConfig.dbs, {
+    useNewUrlParser: true
+  })
+
   // Build in development
   if (config.dev) {
     const builder = new Builder(nuxt)
@@ -24,6 +43,8 @@ async function start() {
   } else {
     await nuxt.ready()
   }
+
+  app.use(articles.routes()).use(articles.allowedMethods())
 
   app.use((ctx) => {
     ctx.status = 200

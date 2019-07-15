@@ -7,8 +7,8 @@
     <el-form-item label="文章名称" prop="name">
       <el-input v-model="ruleForm.name"></el-input>
     </el-form-item>
-    <el-form-item label="文章分类" prop="region">
-      <el-select v-model="ruleForm.region" placeholder="请选择文章分类">
+    <el-form-item label="文章分类" prop="types">
+      <el-select v-model="ruleForm.types" placeholder="请选择文章分类">
         <el-option v-for="(item, index) in category" :key="item.id" :label="item.name" :value="item.name"></el-option>
       </el-select>
     </el-form-item>
@@ -16,10 +16,10 @@
       <el-input v-model="ruleForm.author"></el-input>
     </el-form-item>
     <el-form-item label="内容" prop="content">
-      <vue-quill-editor/>
+      <vue-quill-editor @handleChildChange="handleParent"/>
     </el-form-item>
     <el-form-item>
-      <el-button type="primary" @click="submitForm('ruleForm')">立即创建</el-button>
+      <el-button type="primary" @click="handleSubmit()">立即创建</el-button>
       <el-button @click="resetForm('ruleForm')">重置</el-button>
     </el-form-item>
   </el-form>
@@ -34,7 +34,9 @@ export default {
     return {
       ruleForm: {
         name: '',
-        author: ''
+        author: '',
+        types: '',
+        content: ''
       },
       category: [{
         id: '0001',
@@ -46,9 +48,9 @@ export default {
       rules: {
         name: [
           { required: true, message: '请输入文章标题', trigger: 'blur' },
-          { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+          { min: 3, max: 15, message: '长度在 3 到 5 个字符', trigger: 'blur' }
         ],
-        region: [
+        types: [
           { required: true, message: '请选择文章分类', trigger: 'change' }
         ],
         content: [
@@ -59,6 +61,20 @@ export default {
   },
   components: {
     VueQuillEditor
+  },
+  methods: {
+    handleParent(msg) {
+      this.ruleForm.content = msg;
+    },
+    handleSubmit: function() {
+      let self = this;
+      this.$axios.post('/manager/addArticle', {
+        title: self.ruleForm.name,
+        content: self.ruleForm.content,
+        author: self.ruleForm.author,
+        articleType: self.ruleForm.types
+      })
+    }
   }
 }
 </script>

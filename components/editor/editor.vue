@@ -2,7 +2,8 @@
   <!-- bidirectional data binding（双向数据绑定） -->
   <div class="quill-editor"
        v-model="content"
-       v-quill:myQuillEditor="editorOption">
+       v-quill:myQuillEditor="editorOption"
+       @change="onEditorChange($event)">
   </div>
 </template>
 
@@ -34,7 +35,7 @@
     },
     methods: {
       onEditorChange(event) {
-        console.log('onEditorChange')
+        this.$emit('handleChildChange', this.content)
       }
     },
     // Omit the same parts as in the following component sample code
