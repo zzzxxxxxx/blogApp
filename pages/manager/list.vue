@@ -4,9 +4,9 @@
     stripe
     style="width: 100%">
     <el-table-column
-      prop="date"
+      prop="time"
       label="日期"
-      width="180">
+      width="210">
     </el-table-column>
     <el-table-column
       prop="title"
@@ -14,16 +14,12 @@
       width="180">
     </el-table-column>
     <el-table-column
-      prop="abstract"
-      label="摘要">
-    </el-table-column>
-    <el-table-column
       prop="author"
       label="作者"
       width="100">
     </el-table-column>
     <el-table-column
-      prop="category"
+      prop="articleType"
       label="类别"
       width="180">
     </el-table-column>
@@ -46,31 +42,13 @@ export default {
   layout: 'backstage',
   data: function() {
     return {
-      tableData: [{
-        date: '2016-05-02',
-        title: '这是一个标题',
-        abstract: '门前冷落鞍马稀',
-        author: '柒夜',
-        category: 'javascript'
-      }, {
-        date: '2016-05-04',
-        title: '这是一个标题',
-        abstract: '上海市普陀区金沙江路 1517 弄',
-        author: '柒夜',
-        category: 'javascript'
-      }, {
-        date: '2016-05-01',
-        title: '这是一个标题',
-        abstract: '上海市普陀区金沙江路 1519 弄',
-        author: '柒夜',
-        category: 'javascript'
-      }, {
-        date: '2016-05-03',
-        title: '王小虎',
-        abstract: '上海市普陀区金沙江路 1516 弄',
-        author: '柒夜',
-        category: 'javascript'
-      }]
+      // tableData: [{
+      //   time: '2016-05-02',
+      //   title: '这是一个标题',
+      //   author: '柒夜',
+      //   category: 'javascript'
+      // }],
+      tableData: []
     }
   },
   methods: {
@@ -79,6 +57,13 @@ export default {
     },
     handleDelete: function(index, row) {
       console.log(index, row)
+    }
+  },
+  async asyncData(ctx) {
+    let {data} = await ctx.$axios.get('/manager/listArticle')
+    console.log(data.result)
+    return {
+      tableData: data.result
     }
   }
 }

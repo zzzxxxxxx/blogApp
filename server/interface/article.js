@@ -6,12 +6,16 @@ let router = new Router({
   prefix: '/manager'
 })
 //文章列表
-router.post('/listArticle', async (ctx) => {
-
+router.get('/listArticle', async (ctx) => {
+  let result = await Article.find()
+  ctx.body = {
+    result
+  }
 })
 //增加文章
 router.post('/addArticle', async (ctx) => {
   let nowTime = getTime();
+  console.log(nowTime);
   //对象的解构赋值
   let {title, content, author, articleType, time=nowTime} = ctx.request.body;
   //判断文章是否存在
@@ -49,5 +53,4 @@ function getTime() {
 			+ seperator2 + date.getSeconds();
   return currentdate;
 }
-
 export default router
