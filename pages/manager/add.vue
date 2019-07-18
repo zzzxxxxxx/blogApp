@@ -68,11 +68,26 @@ export default {
     },
     handleSubmit: function() {
       let self = this;
-      this.$axios.post('/manager/addArticle', {
+      self.$axios.post('/manager/addArticle', {
         title: self.ruleForm.name,
         content: self.ruleForm.content,
         author: self.ruleForm.author,
         articleType: self.ruleForm.types
+      }).then(({status, data}) => {
+        if(status === 200) {
+          if(data && data.code === 0) {
+            console.log(data.msg);
+            this.$message({
+              message: data.msg,
+              type: 'success'
+            });
+            setTimeout(function() {
+              location.href = '/manager/add'
+            }, 1000)
+          }
+        }else {
+          self.error = `服务器出错，错误码${status}`
+        }
       })
     }
   }

@@ -9,9 +9,10 @@
 
 <script>
   export default {
+    props: ['childContent'],
     data() {
       return {
-        content: '<p>请输入内容</p>',
+        content: this.childContent,
         editorOption: {
           modules:{
             toolbar:[
