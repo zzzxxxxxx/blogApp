@@ -5,6 +5,30 @@ import axios from './utils/axios'
 let router = new Router({
   prefix: '/manager'
 })
+router.get('/', async (ctx, next) => {
+  if(ctx.isAuthenticated()) {
+        await next();
+    }else{
+        ctx.status = 401;
+        ctx.redirect('/login');
+    }
+})
+router.get('/list', async (ctx, next) => {
+  if(ctx.isAuthenticated()) {
+        await next();
+    }else{
+        ctx.status = 401;
+        ctx.redirect('/login');
+    }
+})
+router.get('/add', async (ctx, next) => {
+  if(ctx.isAuthenticated()) {
+        await next();
+    }else{
+        ctx.status = 401;
+        ctx.redirect('/login');
+    }
+})
 //文章列表
 router.get('/listArticle', async (ctx) => {
   let result = await Article.find()
