@@ -1,0 +1,17 @@
+.models-article {
+  padding: 10px;
+  border-radius: 4px;
+  color: #666;
+  background-color: #fff;
+  .article-title {
+    color: #3e9c87;
+    font-size: 21px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #dddddd;
+  }
+  .article-content {
+    margin-top: 10px;
+    line-height: 20px;
+    border-radius: 4px;
+  }
+}

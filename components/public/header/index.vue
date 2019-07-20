@@ -1,9 +1,9 @@
 <template>
   <div class="m-header center">
-    <nuxt-link to="">柒夜呦</nuxt-link>
+    <h4>柒夜呦</h4>
     <ul>
-      <li class="animated swing infinite"><nuxt-link to=""><i class="iconfont">&#xe718;</i>github</nuxt-link></li>
-      <li><nuxt-link to=""><i class="iconfont">&#xe611;</i>首页</nuxt-link></li>
+      <li class="animated swing infinite"><span @click="handleToGit()"><i class="iconfont">&#xe718;</i>github</span></li>
+      <li><nuxt-link to="/"><i class="iconfont">&#xe611;</i>首页</nuxt-link></li>
     </ul>
   </div>
 </template>
@@ -13,6 +13,11 @@ export default {
   data: function() {
     return {
 
+    }
+  },
+  methods: {
+    handleToGit() {
+      window.location.href = 'https://github.com/zzzxxxxxx'
     }
   }
 }

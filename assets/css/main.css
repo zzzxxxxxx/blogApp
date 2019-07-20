@@ -35,3 +35,32 @@ ul, ol li {
   border-radius: 4px;
   box-shadow: 1px 2px 3px #a7a8ad;
 }
+a {
+  color: #217d68;
+}
+
+.title-hover:hover {
+  color: #f76160 !important;
+  margin-left: 10px;
+}
+.title-hover:link, .title-hover:visited {
+  color: #3e9c87;
+  transition: all 0.4s linear 0s;
+}
+
+/* 解决出现滚动条页面抖动问题 */
+html {
+overflow-y: scroll;
+}
+:root {
+overflow-y: auto;
+overflow-x: hidden;
+}
+:root body {
+position: absolute;
+}
+body {
+width: 100vw;
+overflow: hidden;
+background-color: #f6f6f6;
+}

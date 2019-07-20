@@ -1,7 +1,7 @@
 <template>
   <div class="m-aside">
     <el-row>
-      <aside-search class="container-box"/>
+      <!-- <aside-search class="container-box"/> -->
     </el-row>
     <el-row>
       <aside-category class="container-box"/>

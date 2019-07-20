@@ -15,6 +15,7 @@ import dbConfig from './dbs/config';
 // 引入路由
 import articles from './interface/article'
 import users from './interface/user'
+import renders from './interface/render'
 
 const app = new Koa()
 
@@ -63,6 +64,7 @@ async function start() {
 
   app.use(articles.routes()).use(articles.allowedMethods())
   app.use(users.routes()).use(users.allowedMethods())
+  app.use(renders.routes()).use(renders.allowedMethods())
 
   app.use((ctx) => {
     ctx.status = 200

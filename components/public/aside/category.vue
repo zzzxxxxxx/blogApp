@@ -3,7 +3,7 @@
     <h3>我的标签</h3>
     <ul>
       <li v-for="(item, index) in tags" :key="index">
-        <nuxt-link to="">{{item}}(0)</nuxt-link>
+        <nuxt-link :to="'/category?types=' + item">{{item}}(0)</nuxt-link>
       </li>
     </ul>
   </div>

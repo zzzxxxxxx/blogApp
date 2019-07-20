@@ -1,6 +1,6 @@
 <template>
   <div class="m-category">
-    <category-list/>
+    <category-list :childBlogs="list"/>
   </div>
 </template>
 <script>
@@ -9,11 +9,23 @@ export default {
   name: "",
   data: function() {
     return {
-
+      list: []
     }
   },
   components: {
     CategoryList
+  },
+  watchQuery: ['types'],
+  async asyncData(ctx) {
+    let types = ctx.query.types
+    let {data} = await ctx.$axios.get('/render/searchArticleList', {
+      params:{
+        types
+      }
+    })
+    return {
+      list: data.result
+    }
   }
 }
 </script>
