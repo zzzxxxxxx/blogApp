@@ -11,7 +11,8 @@
           <nuxt />
         </el-main>
     </el-container>
-    <el-footer>Footer</el-footer>
+    <!-- 底部 -->
+    <el-footer></el-footer>
     <el-backtop></el-backtop>
   </el-container>
 </template>

@@ -44,6 +44,12 @@ export default {
       }, {
         id: '0002',
         name: 'react'
+      }, {
+        id: '0003',
+        name: 'vue'
+      }, {
+        id: '0004',
+        name: 'nodeJs'
       }],
       rules: {
         name: [

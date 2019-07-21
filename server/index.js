@@ -16,6 +16,7 @@ import dbConfig from './dbs/config';
 import articles from './interface/article'
 import users from './interface/user'
 import renders from './interface/render'
+import types from './interface/types'
 
 const app = new Koa()
 
@@ -65,6 +66,7 @@ async function start() {
   app.use(articles.routes()).use(articles.allowedMethods())
   app.use(users.routes()).use(users.allowedMethods())
   app.use(renders.routes()).use(renders.allowedMethods())
+  app.use(types.routes()).use(types.allowedMethods())
 
   app.use((ctx) => {
     ctx.status = 200

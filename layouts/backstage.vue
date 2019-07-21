@@ -16,9 +16,11 @@
               <li class="title-padding"><nuxt-link to="/manager/add">增加文章</nuxt-link></li>
             </ul>
           </el-collapse-item>
-          <el-collapse-item title="反馈 Feedback" name="2">
-            <div class="">哈哈哈哈</div>
-            <div class="">哈哈哈哈</div>
+          <el-collapse-item title="文章类别管理" name="2">
+            <template slot="title"><i class="iconfont">&#xe607;</i>文章类别管理</template>
+            <ul>
+              <li class="title-padding"><nuxt-link to="/manager/types">类别列表</nuxt-link></li>
+            </ul>
           </el-collapse-item>
         </el-collapse>
       </el-aside>
